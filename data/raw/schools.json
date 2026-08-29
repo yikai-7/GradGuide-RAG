@@ -1,0 +1,191 @@
+[
+  {
+    "school_name": "清华大学",
+    "location": "北京",
+    "tags": ["985", "211", "双一流"],
+    "cs_school": "计算机科学与技术系",
+    "majors": [
+      {
+        "name": "计算机科学与技术",
+        "exam_subjects": ["政治", "英语一", "数学一", "912计算机学科专业基础"],
+        "recent_scores": {
+          "2024": {"total": 330, "politics": 55, "english": 55, "math": 80, "professional": 90},
+          "2023": {"total": 325, "politics": 55, "english": 55, "math": 75, "professional": 90},
+          "2022": {"total": 320, "politics": 50, "english": 55, "math": 75, "professional": 90}
+        },
+        "admission_ratio": "8:1",
+        "acceptance_count": 45,
+        "recommend_ratio": 0.6
+      }
+    ],
+    "recommended": true
+  },
+  {
+    "school_name": "北京大学",
+    "location": "北京",
+    "tags": ["985", "211", "双一流"],
+    "cs_school": "计算机学院",
+    "majors": [
+      {
+        "name": "计算机科学与技术",
+        "exam_subjects": ["政治", "英语一", "数学一", "801计算机学科专业基础"],
+        "recent_scores": {
+          "2024": {"total": 320, "politics": 55, "english": 55, "math": 75, "professional": 85},
+          "2023": {"total": 315, "politics": 50, "english": 50, "math": 70, "professional": 85},
+          "2022": {"total": 310, "politics": 50, "english": 50, "math": 70, "professional": 85}
+        },
+        "admission_ratio": "7:1",
+        "acceptance_count": 38,
+        "recommend_ratio": 0.65
+      }
+    ],
+    "recommended": true
+  },
+  {
+    "school_name": "浙江大学",
+    "location": "杭州",
+    "tags": ["985", "211", "双一流"],
+    "cs_school": "计算机科学与技术学院",
+    "majors": [
+      {
+        "name": "计算机科学与技术",
+        "exam_subjects": ["政治", "英语一", "数学一", "912计算机学科专业基础"],
+        "recent_scores": {
+          "2024": {"total": 310, "politics": 50, "english": 50, "math": 75, "professional": 85},
+          "2023": {"total": 305, "politics": 50, "english": 50, "math": 70, "professional": 85},
+          "2022": {"total": 300, "politics": 50, "english": 50, "math": 70, "professional": 80}
+        },
+        "admission_ratio": "6:1",
+        "acceptance_count": 60,
+        "recommend_ratio": 0.5
+      }
+    ],
+    "recommended": true
+  },
+  {
+    "school_name": "华中科技大学",
+    "location": "武汉",
+    "tags": ["985", "211", "双一流"],
+    "cs_school": "计算机科学与技术学院",
+    "majors": [
+      {
+        "name": "计算机科学与技术",
+        "exam_subjects": ["政治", "英语一", "数学一", "838计算机专业基础"],
+        "recent_scores": {
+          "2024": {"total": 295, "politics": 50, "english": 50, "math": 70, "professional": 75},
+          "2023": {"total": 290, "politics": 50, "english": 50, "math": 65, "professional": 75},
+          "2022": {"total": 285, "politics": 45, "english": 45, "math": 65, "professional": 75}
+        },
+        "admission_ratio": "5:1",
+        "acceptance_count": 80,
+        "recommend_ratio": 0.4
+      }
+    ],
+    "recommended": true
+  },
+  {
+    "school_name": "哈尔滨工业大学",
+    "location": "哈尔滨",
+    "tags": ["985", "211", "双一流"],
+    "cs_school": "计算机科学与技术学院",
+    "majors": [
+      {
+        "name": "计算机科学与技术",
+        "exam_subjects": ["政治", "英语一", "数学一", "917计算机学科专业基础"],
+        "recent_scores": {
+          "2024": {"total": 300, "politics": 50, "english": 50, "math": 70, "professional": 80},
+          "2023": {"total": 295, "politics": 50, "english": 50, "math": 65, "professional": 80},
+          "2022": {"total": 290, "politics": 45, "english": 45, "math": 65, "professional": 80}
+        },
+        "admission_ratio": "6:1",
+        "acceptance_count": 55,
+        "recommend_ratio": 0.45
+      }
+    ],
+    "recommended": true
+  },
+  {
+    "school_name": "北京邮电大学",
+    "location": "北京",
+    "tags": ["211", "双一流"],
+    "cs_school": "计算机学院",
+    "majors": [
+      {
+        "name": "计算机科学与技术",
+        "exam_subjects": ["政治", "英语一", "数学一", "803计算机学科专业基础"],
+        "recent_scores": {
+          "2024": {"total": 310, "politics": 50, "english": 50, "math": 70, "professional": 80},
+          "2023": {"total": 305, "politics": 50, "english": 50, "math": 65, "professional": 80},
+          "2022": {"total": 300, "politics": 50, "english": 50, "math": 65, "professional": 75}
+        },
+        "admission_ratio": "6:1",
+        "acceptance_count": 120,
+        "recommend_ratio": 0.5
+      }
+    ],
+    "recommended": true
+  },
+  {
+    "school_name": "西安电子科技大学",
+    "location": "西安",
+    "tags": ["211", "双一流"],
+    "cs_school": "计算机科学与技术学院",
+    "majors": [
+      {
+        "name": "计算机科学与技术",
+        "exam_subjects": ["政治", "英语一", "数学一", "815计算机学科基础"],
+        "recent_scores": {
+          "2024": {"total": 290, "politics": 50, "english": 50, "math": 65, "professional": 75},
+          "2023": {"total": 285, "politics": 50, "english": 45, "math": 65, "professional": 75},
+          "2022": {"total": 280, "politics": 45, "english": 45, "math": 60, "professional": 75}
+        },
+        "admission_ratio": "5:1",
+        "acceptance_count": 100,
+        "recommend_ratio": 0.3
+      }
+    ],
+    "recommended": true
+  },
+  {
+    "school_name": "南京理工大学",
+    "location": "南京",
+    "tags": ["211", "双一流"],
+    "cs_school": "计算机科学与工程学院",
+    "majors": [
+      {
+        "name": "计算机科学与技术",
+        "exam_subjects": ["政治", "英语一", "数学一", "817计算机专业基础"],
+        "recent_scores": {
+          "2024": {"total": 280, "politics": 50, "english": 50, "math": 65, "professional": 70},
+          "2023": {"total": 275, "politics": 50, "english": 45, "math": 60, "professional": 70},
+          "2022": {"total": 270, "politics": 45, "english": 45, "math": 60, "professional": 70}
+        },
+        "admission_ratio": "4:1",
+        "acceptance_count": 70,
+        "recommend_ratio": 0.35
+      }
+    ],
+    "recommended": false
+  },
+  {
+    "school_name": "杭州电子科技大学",
+    "location": "杭州",
+    "tags": ["双非"],
+    "cs_school": "计算机学院",
+    "majors": [
+      {
+        "name": "计算机科学与技术",
+        "exam_subjects": ["政治", "英语一", "数学二", "818计算机网络、数据结构"],
+        "recent_scores": {
+          "2024": {"total": 270, "politics": 45, "english": 45, "math": 60, "professional": 70},
+          "2023": {"total": 265, "politics": 45, "english": 45, "math": 55, "professional": 70},
+          "2022": {"total": 260, "politics": 40, "english": 40, "math": 55, "professional": 70}
+        },
+        "admission_ratio": "4:1",
+        "acceptance_count": 90,
+        "recommend_ratio": 0.2
+      }
+    ],
+    "recommended": false
+  }
+]

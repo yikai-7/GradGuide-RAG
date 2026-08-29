@@ -1,0 +1,22 @@
+# LLM & Embedding
+openai>=1.0.0                    # DeepSeek API 兼容 OpenAI 格式
+sentence-transformers>=2.2.0     # 本地 Embedding + Reranker
+
+# Vector DB
+chromadb>=0.4.0
+
+# Retrieval
+rank_bm25>=2.0.0                 # BM25 检索
+
+# Backend
+fastapi>=0.100.0
+uvicorn>=0.23.0
+pydantic>=2.0.0
+
+# Frontend
+streamlit>=1.28.0
+requests>=2.31.0
+
+# Utils
+python-dotenv>=1.0.0
+numpy>=1.24.0
