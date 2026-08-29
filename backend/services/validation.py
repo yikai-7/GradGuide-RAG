@@ -49,7 +49,8 @@ class ValidationService:
 
         # 匹配模式：清华大学...2024年...总分330
         # (?s) 让 . 跨行匹配：LLM 回答常分行 / 带 Markdown，学校名与年份可能不在同一行
-        score_pattern = r'(?s)(\w+大学).*?(\d{4})年.*?总分(\d{3,4})'
+        # [^0-9]{0,6} 兼容"总分为330""总分约330"等连接词
+        score_pattern = r'(?s)(\w+大学).*?(\d{4})年.*?总分[^0-9]{0,6}(\d{3,4})'
         matches = re.findall(score_pattern, answer)
 
         for school_name, year, total_score in matches:
@@ -76,8 +77,8 @@ class ValidationService:
         """校验报录比"""
         results = []
 
-        # 匹配：报录比为X:1 或 报录比约X:1
-        ratio_pattern = r'(?s)(\w+大学).*?报录比[约为]*(\d+):1'
+        # 匹配：报录比为X:1 或 报录比约X:1；[^0-9]{0,6} 兼容 markdown 空格等
+        ratio_pattern = r'(?s)(\w+大学).*?报录比[^0-9]{0,6}(\d+):1'
         matches = re.findall(ratio_pattern, answer)
 
         for school_name, ratio in matches:
@@ -97,8 +98,8 @@ class ValidationService:
         """校验录取人数"""
         results = []
 
-        # 匹配：录取XXX人 或 招XXX人；"为"字补充进字符类，兼容"录取人数为60人"
-        count_pattern = r'(?s)(\w+大学).*?录取[人数约为]*(\d+)人'
+        # 匹配：录取XXX人 或 招XXX人；[^0-9]{0,6} 兼容"录取人数为60人"等
+        count_pattern = r'(?s)(\w+大学).*?录取[^0-9]{0,6}(\d+)人'
         matches = re.findall(count_pattern, answer)
 
         for school_name, count in matches:

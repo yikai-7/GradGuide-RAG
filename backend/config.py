@@ -31,6 +31,7 @@ RRF_K = 60               # RRF 融合参数
 # 置信度阈值
 CONFIDENCE_THRESHOLD_HIGH = 0.8
 CONFIDENCE_THRESHOLD_LOW = 0.5
+RECALL_FLOOR = 0.15           # 召回覆盖率满分时，单文档分数下限（低于此值仍拒答）
 
 # Chunk 配置
 CHUNK_SIZE = 500

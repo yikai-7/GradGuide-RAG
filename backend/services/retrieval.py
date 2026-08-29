@@ -33,6 +33,32 @@ class RetrievalService:
         self.bm25_docs = None
         self._build_bm25_index()
 
+        # 知识库中的学校名（用于召回覆盖率评估）
+        self.school_names = self._extract_school_names()
+
+    def _extract_school_names(self) -> List[str]:
+        """从向量库 metadata 提取去重的学校名列表"""
+        all_docs = self.collection.get(include=["metadatas"])
+        names = set()
+        for meta in all_docs["metadatas"]:
+            name = meta.get("school_name")
+            if name:
+                names.add(name)
+        return list(names)
+
+    def assess_coverage(self, query: str, results: List[Dict]) -> float:
+        """
+        召回覆盖率：问题中提到的学校，有多少被检索结果覆盖。
+        返回 0.0 ~ 1.0；若问题未提具体学校，返回 1.0（无法评估，视为满分）。
+        """
+        mentioned = [s for s in self.school_names if s in query]
+        if not mentioned:
+            return 1.0
+
+        recalled = {doc["metadata"].get("school_name") for doc in results}
+        covered = [s for s in mentioned if s in recalled]
+        return len(covered) / len(mentioned)
+
     def _build_bm25_index(self):
         """构建 BM25 索引（中文用 jieba 分词）"""
         all_docs = self.collection.get()

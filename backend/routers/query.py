@@ -36,10 +36,13 @@ async def query_endpoint(
     # 1. 混合检索 + Reranker 精排
     retrieved_docs, max_score = retriever.retrieve(request.question)
 
-    # 2. 置信度评估
-    level, should_reject, reason = confidence_svc.evaluate(max_score)
+    # 2. 召回覆盖率评估（问题提到的学校是否都被召回）
+    coverage = retriever.assess_coverage(request.question, retrieved_docs)
 
-    # 3. 低置信度：直接拒答
+    # 3. 置信度评估（单文档相关性 + 召回覆盖率）
+    level, should_reject, reason = confidence_svc.evaluate(max_score, coverage)
+
+    # 4. 低置信度：直接拒答
     if should_reject:
         return QueryResponse(
             answer=generator.generate_with_rejection(request.question, reason),
@@ -51,13 +54,13 @@ async def query_endpoint(
             rejection_reason=reason,
         )
 
-    # 4. 生成回答
+    # 5. 生成回答
     answer = generator.generate(request.question, retrieved_docs)
 
-    # 5. 解析引用
+    # 6. 解析引用
     citations = parse_citations(answer, retrieved_docs)
 
-    # 6. 结构化数据校验
+    # 7. 结构化数据校验
     validation_results = validator.validate_answer(answer)
 
     return QueryResponse(
