@@ -7,6 +7,7 @@ chromadb>=0.4.0
 
 # Retrieval
 rank_bm25>=2.0.0                 # BM25 检索
+jieba>=0.42.1                    # 中文分词（BM25 用）
 
 # Backend
 fastapi>=0.100.0
