@@ -59,25 +59,25 @@ python -m backend.evaluation.evaluate_compare # 对比/开放题幻觉拦截
 
 ```
 kaoyan-rag/
-├── backend/
-│   ├── main.py
-│   ├── config.py
-│   ├── dependencies.py
-│   ├── routers/
-│   ├── services/
-│   ├── models/
-│   ├── utils/
-│   ├── tests/
-│   └── evaluation/
-├── frontend/
-├── data/
-│   ├── raw/
-│   │   ├── schools.json
-│   │   └── introductions/
-│   └── chroma_db/
-├── docs/
-├── requirements.txt
-└── .env
+  backend/
+    main.py
+    config.py
+    dependencies.py
+    routers/
+    services/
+    models/
+    utils/
+    tests/
+    evaluation/
+  frontend/
+  data/
+    raw/
+      schools.json
+      introductions/
+    chroma_db/
+  docs/
+  requirements.txt
+  .env
 
 > 目录说明：`routers/` 含问答/文档/结构化三个路由；`services/` 含检索/生成/校验/置信度/入库五个服务；`tests/` 为单元/集成测试；`evaluation/` 为幻觉率评估脚本。
 ```
