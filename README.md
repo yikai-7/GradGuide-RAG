@@ -59,25 +59,27 @@ python -m backend.evaluation.evaluate_compare # 对比/开放题幻觉拦截
 
 ```
 kaoyan-rag/
-├── backend/              # 后端代码
-│   ├── main.py           # FastAPI 入口
-│   ├── config.py         # 配置管理
-│   ├── dependencies.py   # 依赖注入（lru_cache 单例）
-│   ├── routers/          # API 路由（query/documents/structured）
-│   ├── services/         # 业务逻辑（检索/生成/校验/置信度/入库）
-│   ├── models/           # Pydantic 数据模型
-│   ├── utils/            # 工具函数（分块/引用解析）
-│   ├── tests/            # 单元/集成测试
-│   └── evaluation/       # 幻觉率评估脚本
-├── frontend/             # 前端 Streamlit 应用
-├── data/                 # 数据目录
-│   ├── raw/              # 原始数据
-│   │   ├── schools.json  # 结构化院校数据
-│   │   └── introductions/ # 院校介绍文本
-│   └── chroma_db/        # ChromaDB 持久化目录
-├── docs/                 # 文档（开发问题记录、优化指南）
-├── requirements.txt      # 依赖清单
-└── .env                  # 环境变量
+├── backend/
+│   ├── main.py
+│   ├── config.py
+│   ├── dependencies.py
+│   ├── routers/
+│   ├── services/
+│   ├── models/
+│   ├── utils/
+│   ├── tests/
+│   └── evaluation/
+├── frontend/
+├── data/
+│   ├── raw/
+│   │   ├── schools.json
+│   │   └── introductions/
+│   └── chroma_db/
+├── docs/
+├── requirements.txt
+└── .env
+
+> 目录说明：`routers/` 含问答/文档/结构化三个路由；`services/` 含检索/生成/校验/置信度/入库五个服务；`tests/` 为单元/集成测试；`evaluation/` 为幻觉率评估脚本。
 ```
 
 ## 四层防线架构
