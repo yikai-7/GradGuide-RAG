@@ -29,10 +29,11 @@ def test_root():
 def test_schools():
     resp = client.get("/api/schools")
     assert resp.status_code == 200
-    schools = resp.json()["schools"]
+    schools = resp.json()
     assert len(schools) > 0
-    assert "清华大学" in schools
-    print(f"✅ GET /api/schools：返回 {len(schools)} 所院校 {schools[:3]}...")
+    names = [s["school_name"] for s in schools]
+    assert "清华大学" in names
+    print(f"✅ GET /api/schools：返回 {len(schools)} 所院校 {names[:3]}...")
 
 
 def test_school_detail():

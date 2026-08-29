@@ -24,11 +24,9 @@ async def list_schools(
     validator: ValidationService = Depends(get_validation_service)
 ):
     """
-    返回所有院校名称。
+    返回所有院校的完整结构化数据（标准答案）。
     """
-    return {
-        "schools": list(validator.schools_data.keys())
-    }
+    return list(validator.schools_data.values())
 
 
 @router.get("/schools/{school_name}")

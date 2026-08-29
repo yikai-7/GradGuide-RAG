@@ -8,9 +8,21 @@ from fastapi import APIRouter, Depends, HTTPException
 
 from backend.dependencies import get_retrieval_service
 from backend.services.retrieval import RetrievalService
+from backend.services.ingestion import IngestionService
 
 
 router = APIRouter()
+
+
+@router.post("/documents/ingest")
+async def ingest_documents():
+    """
+    重新执行数据入库：清空向量库并重写入库。
+    """
+    service = IngestionService()
+    service.clear()
+    service.ingest()
+    return {"message": "数据入库完成"}
 
 
 @router.get("/documents")
