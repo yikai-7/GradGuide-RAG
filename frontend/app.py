@@ -5,6 +5,8 @@ Phase 7: Streamlit 前端
 通过 HTTP 调用 FastAPI 后端，展示带溯源、置信度、数据校验的问答结果。
 启动方式：streamlit run frontend/app.py
 """
+import json
+
 import streamlit as st
 import requests
 
@@ -19,7 +21,52 @@ st.set_page_config(
 st.title("🎓 考研择校智能问答系统")
 
 
-# ========== 智能问答 ==========
+# ========== 侧边栏：数据管理 ==========
+with st.sidebar:
+    st.header("数据管理")
+
+    with st.expander("📤 上传院校数据"):
+        up_name = st.text_input("学校名称", key="up_name")
+        up_intro = st.text_area("介绍文本（可选）", key="up_intro", height=150)
+        up_struct = st.text_area("结构化数据 JSON（可选）", key="up_struct", height=150)
+
+        if st.button("上传", key="btn_upload"):
+            if not up_name.strip():
+                st.error("请填写学校名称")
+            else:
+                payload = {"school_name": up_name.strip()}
+                if up_intro.strip():
+                    payload["introduction"] = up_intro
+                if up_struct.strip():
+                    try:
+                        payload["structured"] = json.loads(up_struct)
+                    except json.JSONDecodeError:
+                        st.error("结构化数据 JSON 格式错误")
+                        st.stop()
+
+                with st.spinner("正在上传..."):
+                    resp = requests.post(
+                        f"{API_BASE_URL}/documents/upload",
+                        json=payload,
+                        timeout=30
+                    )
+                if resp.status_code == 200:
+                    st.success(f"上传成功：{resp.json()['written']}")
+                else:
+                    st.error(f"上传失败：{resp.text}")
+
+    st.divider()
+
+    if st.button("🔄 重新入库数据", key="btn_ingest"):
+        with st.spinner("正在清空并重新入库..."):
+            resp = requests.post(f"{API_BASE_URL}/documents/ingest", timeout=600)
+        if resp.status_code == 200:
+            st.success("入库完成！")
+        else:
+            st.error(f"入库失败：{resp.text}")
+
+
+# ========== 主界面：智能问答 ==========
 question = st.text_input(
     "输入你的问题",
     placeholder="例如：清华计算机考研分数线是多少？"
